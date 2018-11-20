@@ -1,0 +1,5 @@
+ssh -i "taxilive.pem" root@ec2-35-173-251-193.compute-1.amazonaws.com -DB  ----->3.6 db
+
+user: "superAdmin",pwd: "uEsrGhYTDER"
+
+ssh -i "internalloadtest.pem" centos@ec2-35-171-141-13.compute-1.amazonaws.com -web

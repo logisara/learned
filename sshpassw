@@ -1,0 +1,12 @@
+cat .ssh/id_rsa.pub | ssh ndot@192.168.2.212 'cat >> .ssh/authorized_keys'
+ssh root@192.168.2.212 "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+ssh ndot@192.168.0.11 --> it will go without password
+
+ssh-keygen -t rsa -b 4096 -C "My ansisble key"
+ssh ndot@192.168.0.11
+
+cd /usr/bin/
+sudo vim <name>
+enter ssh username@ip
+sudo chmod 777 <name>
+<name>

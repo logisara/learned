@@ -1,0 +1,174 @@
+1.creating mongodb username for particular DB.
+	a)use <dbname>
+	b)db.createUser({user: "urbantaxi",pwd: "123456789","roles" : [ "readWrite"]})
+	c)db.createUser({ user: "admin", pwd: "3TbYhx8f7rfCV", roles: [{ role: "userAdminAnyDatabase", db: "admin" }] })
+	d)db.createUser({user: "superAdmin",pwd: "admin123", roles: [ { role: "root", db: "admin" } ] })
+
+2.Entering mongodb
+	a)mongod -u <username> -p --port <portname> --authenticationDatabase <databasename>
+3.mongoDump
+	a)mongodump -u <username> -p --port <portname> -d <databasename> -o <outputfilename>
+	b)mongodump -v --host 192.168.1.118:27018 --username root --password KNlZmiaNUp0B --authenticationDatabase admin -d "Cerebrox_V1" --out /home/hduser/Desktop
+4.mongoRestore
+	mongorestore -u <username> -p --port <portname> -d <newdatabasename> <inputfilename>
+	mongorestore -v --host 192.168.1.118:27018 --username root --password KNlZmiaNUp0B --authenticationDatabase admin -d <database_name> <Dir_Name>
+5.MongoPassword change
+	db.changeUserPassword("accountuser","newpass")	
+
+6.db.copyDatabase(<from_db>, <to_db>, <from_hostname>, <username>, <password>);
+
+
+
+Sys@CL0ud17
+
+
+https://medium.com/@raj_adroit/mongodb-enable-authentication-enable-access-control-e8a75a26d332
+
+	db.createUser({user: "drinkdrivedevelopment",pwd: "EFredSWeatrest","roles" : [ "readWrite"]})
+
+db.createUser({user: "rejina",pwd: "aqwexc43erw2","roles" : [ "readWrite"]})
+
+db.createUser({user: "pickmeservice",pwd: "aqwexc4hgtre","roles" : [ "readWrite"]})
+
+db.createUser({user: "onwaycabs",pwd: "wDerFTYgfwer","roles" : [ "readWrite"]})
+
+
+db.createUser({user: "wedituk",pwd: "dhuahuyeRas","roles" : [ "readWrite"]})
+
+
+db.createUser({user: "orcarsstaging",pwd: "x8f7*%rfCVyp","roles" : [ "readWrite"]})
+
+
+db.createUser({user: "mongodrinkdrive",pwd: "aqwexc43erw2", roles: [ { role: "root", db: "admin" } ] })
+db.createUser({user: "drinkdrivedemo",pwd: "wDerFTYgfwer","roles" : [ "readWrite"]})
+
+db.createUser({user: "mongorsl",pwd: "wDerFTYgfwer","roles" : [ "readWrite"]})
+db.createUser({user: "rezglo",pwd: "wDerFTYgfwer","roles" : [ "readWrite"]})
+db.createUser({user: "rezglo",pwd: "admin123", roles: [ { role: "root", db: "admin" } ] })
+reggiedb
+
+
+rejina:
+db.createUser({user: "superAdmin",pwd: "uEsrGhYTDER", roles: [ { role: "root", db: "admin" } ] })
+
+db.createUser({user: "rydehostbike",pwd: "ryde123","roles" : [ "readWrite"]})
+db.createUser({user: "orcarsstage",pwd: "orcarsstage123","roles" : [ "readWrite"]})
+
+db.createUser({user: "Grandlimolive",pwd: "grand123**","roles" : [ "readWrite"]})
+db.createUser({user: "babycabs",pwd: "YeSorNo**","roles" : [ "readWrite"]})
+
+db.createUser({user: "alexa",pwd: "AYterGREdf","roles" : [ "readWrite"]})
+
+db.createUser({user: "xtransportation",pwd: "AYuyrrGREdf","roles" : [ "readWrite"]})
+sudo apt-get -y install python3-pip
+
+db.createUser({user: "mongoai",pwd: "a3feca3ahyte", roles: [ { role: "root", db: "admin" } ] })
+
+db.createUser({user: "mongoatakasi",pwd: "a3feca3ahyteghytF", roles: [ { role: "root", db: "admin" } ] })
+
+K3yDe5Kt0p
+db.createUser({user: "mongoadmin",pwd: "a3feca3a86", roles: [ { role: "root", db: "admin" } ] })
+db.createUser({user: "mongoadmin",pwd: "CGUyo41HspNkD431", roles: [ { role: "root", db: "admin" } ] })
+ 
+db.createUser({user: "pickmedb",pwd: "wDergyterr","roles" : [ "readWrite"]})
+db.createUser({user: "mongomdb",pwd: "asf2E5tAdRuSachupa","roles" : [ "readWrite"]})
+
+db.createUser({user: "gabirindonesia",pwd: "wgterafyterr","roles" : [ "readWrite"]})
+
+db.createUser({user: "otscabsdb",pwd: "wgthrgyterr","roles" : [ "readWrite"]})
+
+db.createUser({user: "cabslanka",pwd: "SAlvhj76E","roles" : [ "readWrite"]})
+db.createUser({user: "frienstrack",pwd: "kERsfatyhYrS","roles" : [ "readWrite"]})
+db.createUser({user: "taxista",pwd: "kERsfatyuFS","roles" : [ "readWrite"]})
+
+db.createUser({user: "Tmtv1",pwd: "TagyterEmy","roles" : [ "readWrite"]})
+db.createUser({user: "Tmtv2",pwd: "TaMytaferw","roles" : [ "readWrite"]})
+db.createUser({user: "Tmtv3",pwd: "TagMYVersIon","roles" : [ "readWrite"]})
+
+db.createUser({user: "mongodrinkdriveqa",pwd: "HfserwdQSWe","roles" : [ "readWrite"]})
+
+db.createUser({user: "pickpick",pwd: "HfserwdfreWe","roles" : [ "readWrite"]})
+db.createUser({user: "gabirholding",pwd: "HfserwdfreWe","roles" : [ "readWrite"]})
+
+db.createUser({user: "nmotiontest",pwd: "HfserwdreWe","roles" : [ "readWrite"]})
+
+db.createUser({user: "tmtsaas",pwd: "ARedswREdf","roles" : [ "readWrite"]})
+db.createUser({user: "rezglo",pwd: "ARedswthyf","roles" : [ "readWrite"]})
+
+db.createUser({user: "tmts",pwd: "ARedswREdf","roles" : [ "readWrite"]})
+db.createUser({user: "q8taxi",pwd: "AdwQswREdf","roles" : [ "readWrite"]})
+
+db.createUser({user: "wadeenataxi",pwd: "yhtrgyterr","roles" : [ "readWrite"]})
+
+db.createUser({user: "mongoadmin",pwd: "p4defuktRaNjIthgfd", roles: [ { role: "root", db: "admin" } ] })
+
+db.createUser({user: "engagedots_new",pwd: "SAlvhj76E","roles" : [ "readWrite"]})
+
+
+q8taxi.cab:
+
+db.createUser({user: "mongoadmin",pwd: "p4defukyHerdaw", roles: [ { role: "root", db: "admin" } ] })
+db.createUser({user: "q8taxi",pwd: "HgFersdGHytwer","roles" : [ "readWrite"]})
+
+zustgo:
+db.createUser({user: "zustgo",pwd: "gRessDferjuk","roles" : [ "readWrite"]})
+instaryde:
+db.createUser({user: "instaryde",pwd: "gRygegferjuk","roles" : [ "readWrite"]})
+
+rejinademo:
+db.createUser({user: "rejinademo",pwd: "gRygegferjuk","roles" : [ "readWrite"]})
+
+filo:
+db.createUser({user: "filo",pwd: "gjugetRfauk","roles" : [ "readWrite"]})
+
+royalride:
+db.createUser({user: "royalride",pwd: "gjugetRfauk","roles" : [ "readWrite"]})
+
+takasi:
+db.createUser({user: "mongoatakasi",pwd: "a3feca3ahyteghytF", roles: [ { role: "root", db: "admin" } ] })
+
+db.createUser({user: "takasi",pwd: "HgFersdGHytwer","roles" : [ "readWrite"]})
+local:
+db.createUser({user: "takasi_phase2",pwd: "hYgerFrrtgA","roles" : [ "readWrite"]})
+
+
+intercab_clone:
+db.createUser({user: "intercabclone",pwd: "gRygeghhferjuk","roles" : [ "readWrite"]})
+
+db.createUser({user: "machinetest",pwd: "ndot","roles" : [ "readWrite"]})
+
+seycehless:
+
+db.createUser({user: "seychellas",pwd: "gRygegyhyerjuk","roles" : [ "readWrite"]})
+
+db.createUser({user: "rrcabs",pwd: "yhTEegfresj","roles" : [ "readWrite"]})
+
+db.createUser({user: "gabirnew",pwd: "HyreFgerjuk","roles" : [ "readWrite"]})
+
+db.createUser({user: "marhabataxi",pwd: "HytyhFgerjuk","roles" : [ "readWrite"]})
+
+cerebroxlive:
+db.createUser({user: "mongoacerebrox",pwd: "a3fehyTgeyteghytF", roles: [ { role: "root", db: "admin" } ] })
+
+db.createUser({user: "hiautosaas",pwd: "HytyhFgerjuk","roles" : [ "readWrite"]})
+
+db.createUser({user: "takasi",pwd: "tyerhFgerjuk","roles" : [ "readWrite"]})
+db.createUser({user: "esafari",pwd: "tyerhjuh5rjuk","roles" : [ "readWrite"]})
+
+db.createUser({user: "ezpay",pwd: "tyerhnov5rjuk","roles" : [ "readWrite"]})
+db.createUser({user: "marino",pwd: "HuyrtGerFghde","roles" : [ "readWrite"]})
+
+'username'  => 'quickpick',
+                                'password'  => 'E5sdtRaN',
+
+db.createUser({user: "cabiclient",pwd: "JegrtHY56FER34","roles" : [ "read"]})
+
+db.createUser({user: "quickpick",pwd: "E5sdtRaN","roles" : [ "readWrite"]})
+db.createUser({user: "easycabjack",pwd: "ju5sdtRaN","roles" : [ "readWrite"]})
+
+db.createUser({user: "ddlocal",pwd: "ju5sdtRaN","roles" : [ "readWrite"]})
+
+db.createUser({user: "mongolocal",pwd: "ndot1234", roles: [ { role: "root", db: "admin" } ] })
+
+
+

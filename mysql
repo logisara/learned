@@ -1,0 +1,6 @@
+1.Mysql restore
+	mysql -uroot -p zabbix < zabbixdb.sql
+2.Mysql password
+ ​grant all privileges on zabbix.* to zabbix@localhost identified by 'hDRfdwedsa12!@';​
+GRANT ALL PRIVILEGES ON Taximobility_ceetytaxi_db2.* TO 'ceetytaxidb'@'162.222.183.145' IDENTIFIED BY 'RuD7MvE9eQ2dBEbG';
+

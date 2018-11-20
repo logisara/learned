@@ -1,0 +1,235 @@
+openstack installation:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+sudo apt-get upgrade -->if needed
+sudo apt-get update
+create user as stack
+su stack
+cd /
+sudo git clone https://git.openstack.org/openstack-dev/devstack  stable/juju
+cd devstack/
+sudo cp samples/local.conf local.conf
+sudo nano local.conf
+-----------------------------------------------------------------------------------------
+ADMIN_PASSWORD=yourpassword
+
+MYSQL_PASSWORD=$ADMIN_PASSWORD
+
+RABBIT_PASSWORD=$ADMIN_PASSWORD
+
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+------------------------------------------------------------------------------------------
+sudo chown -R stack:stack /devstack
+/devstack/stack.sh
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Installation steps of Openstack (Devstack-stable-newton)
+https://tutorials4uhelp.com/Openstack/ois.htm
+
+ 
+
+01. Before starting installation process you have update and upgrade your system
+
+ 
+
+    sudo apt-get update
+
+    sudo apt-get upgrade
+
+ 
+
+02. Create a new user and give permission to start the openstack installation 
+
+ 
+
+    sudo adduser stack
+
+    sudo -i
+
+    echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+ 
+
+03. Download the devstack from github.com,
+
+  
+
+    https://github.com/openstack-dev/devstack
+
+ 
+
+    Alternative
+
+    sudo apt-get install git
+
+    git clone https://git.openstack.org/openstack-dev/devstack
+
+ 
+
+04. Unzip the folder and copy this in user's home folder
+
+ 
+
+05. Download get-pip.py file from the following location and copy in devstack's files folder
+
+ http://192.168.3.243:9880/Rezglo_ios_pass/trunk
+ 
+
+    You can omit this step if you choose alternative process in step 3.
+
+    https://bootstrap.pypa.io/get-pip.py
+
+    [if any qoute error exist then correct it]
+
+ 
+
+06. Run the following commands to avoid errors before installation
+
+ 
+
+    For lock error
+
+    sudo rm /var/lib/dpkg/lock
+
+    sudo rm /var/lib/apt/lists/lock
+
+    sudo rm /var/cache/apt/archives/lock
+
+ 
+
+    Re-install python and mysql
+
+    sudo apt-get autoremove python
+
+    sudo apt-get install python
+
+    sudo apt-get install python-scrapy
+
+    sudo apt-get install docker-compose
+
+    sudo apt-get install -f
+
+ 
+
+    sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-5.7 mysql-client-core-5.7
+
+    sudo rm -rf /etc/mysql /var/lib/mysql
+
+    sudo apt-get autoremove
+
+    sudo apt-get autoclean
+
+ 
+
+    Install
+
+    sudo apt install mysql-server mysql-client
+
+    [remember the root password during installation which will be used local.conf file]
+
+ 
+
+   
+
+ 
+
+     For faster installation install the following file and store it on /devstack/files/
+
+     http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-uec.tar.gz
+
+ 
+
+07. Configure local.conf file
+
+ 
+
+    cd devstack/
+
+    cd samples
+
+    cp local.conf ../
+
+    cd ..
+
+    nano local.conf
+
+ 
+
+    ADMIN_PASSWORD=pass1
+
+    DATABASE_PASSWORD=pass1
+
+    RABBIT_PASSWORD=pass1
+
+    SERVICE_PASSWORD=pass1
+
+ 
+
+    HOST_IP=10.0.2.15
+
+    FLOATING_RANGE=10.0.2.224/27
+
+    
+
+    ctrl+X -> y
+
+ 
+
+08. Now you can start your installation process
+
+ 
+
+    ./stack.sh
+
+   
+
+ 
+
+ 
+
+ 
+
+Note*****
+
+ 
+
+For reinstallation,
+
+ 
+
+sudo rm -rf /var/lib/apt/lists/* -vf
+
+sudo apt-get update
+
+ 
+
+ 
+
+./unstack.sh
+
+./clean.sh
+
+./stack.sh
+
+   
+
+For unlock
+
+ 
+
+sudo rm /var/lib/dpkg/lock
+
+sudo rm /var/lib/apt/lists/lock
+
+sudo rm /var/cache/apt/archives/lock
+
+sudo rm -rf /var/lib/apt/lists/*
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+ 
+
+
+
+

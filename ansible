@@ -1,0 +1,17 @@
+with command - ansible -m command -a "df -h" webservers
+
+
+ansible masters -m shell -a "pwd" --private-key=/home/ec2-user/openshift-aws-installer-image/ck_workshop.pem -u ec2-user
+--ask-sudo-pass
+ansible -a "some command"
+ansible <hosts> -a 'yum update -y'
+ansible all -m ping
+ansible-playbook playbooks/atmo_playbook.yml --user atmouser
+ansible -m ping hosts --private-key=~/.ssh/keys/id_rsa -u centos
+ansible-playbook playbooks/atmo_playbook.yml -e "ATMOUSERNAME=atmouser"
+
+ec2-35-170-205-252.compute-1.amazonaws.com
+
+52.3.183.58	
+
+

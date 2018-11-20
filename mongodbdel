@@ -1,0 +1,13 @@
+var dblist = db.getMongo().getDBNames().length
+print("TotalDblist:",+dblist)
+var count = 0
+var dbs=[] //(assign all db name in a string)
+for(var i in dbs){
+        db = db.getMongo().getDB( dbs[i] );
+        print( "dropping db " + db.getName() );
+        db.dropDatabase();
+        count = count + 1;
+}
+print("count",+count)
+var Afterdelete = db.getMongo().getDBNames().length
+print("Afterdelete:",+Afterdelete)

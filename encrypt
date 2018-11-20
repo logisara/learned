@@ -1,0 +1,14 @@
+Before:
+vim t.txt
+mkdir ramki
+rsync -avzrP --files-from=t.txt . ramki
+zip -r ramki.zip ramki
+scp -i "ndotserver.pem" ramki centos@ec2-34-230-200-122.compute-1.amazonaws.com:/tmp
+After:
+ssh -i "ndotserver.pem" centos@ec2-34-230-200-122.compute-1.amazonaws.com
+mv /tmp/ramki.zip /root/ram/
+unzip ramki
+cd /usr/local/ioncube_encoder5_9.0/bin/
+./ioncube_encoder56_9.0_64 /root/ram/ramki/ -o /root/ram/en/ramki/
+zip -r /data/uniecommerce/ramki.zip /root/ram/en/ramki
+

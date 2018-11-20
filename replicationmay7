@@ -1,0 +1,18 @@
+Replication:
+primary server:
+
+ bindIp: 127.0.0.1,172.31.28.6
+replication:
+   replSetName: "rs1"
+
+service mongod restart
+
+rs.initiate( {   _id : "rs1",members: [{ _id : 0, host  : "34.193.67.126:49017"}]})
+rs.add("34.197.229.1:28018")
+
+
+
+
+
+
+

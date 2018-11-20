@@ -1,0 +1,94 @@
+wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz
+
+tar -xvf apache-tomcat-8.5.23.tar.gz
+
+mkdir /opt/tomcat/
+
+cp apache-tomcat-8.5.5/ /opt/tomcat/
+
+sudo update-java-alternatives -l
+
+sudo nano /etc/systemd/system/tomcat.service
+---------------------------------------------------------
+NEED TO ADD THIS IN:
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=<Your java path in java-alternatives>/jre
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+--------------------------------------------------------
+sudo systemctl daemon-reload
+
+Navigate to 
+cd /opt/tomcat/bin/
+./shutdown.sh
+./startup.sh
+
+http://server_domain_or_IP:8080 --> Tomcat page will display
+
+for permission of manager and host:
+
+sudo nano /opt/tomcat/conf/tomcat-users.xml
+
+---------------------------------------------------------
+NEED TO ADD THIS IN:
+
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>
+<role rolename="admin-gui"/>
+<role rolename="admin-script"/>
+<user username="admin" password="admin" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+
+----------------------------------------------------------
+sudo nano /opt/tomcat/webapps/manager/META-INF/context.xml
+
+-----------------------------------------------------------
+ADD THAT <!-- to -->
+<Context antiResourceLocking="false" privileged="true" >
+  <!--<Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />-->
+</Context>
+------------------------------------------------------------
+sudo nano /opt/tomcat/webapps/host-manager/META-INF/context.xml
+
+--------------------------------------------------------------
+ADD THAT <!-- to -->
+
+<Context antiResourceLocking="false" privileged="true" >
+  <!--<Valve className="org.apache.catalina.valves.RemoteAddrValve"
+         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />-->
+</Context>
+
+---------------------------------------------------------------
+
+Navigate to 
+cd /opt/tomcat/bin/
+./shutdown.sh
+./startup.sh
+
+http://server_domain_or_IP:8080
+
+
+

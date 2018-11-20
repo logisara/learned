@@ -1,0 +1,5 @@
+rsync -avzrP --files-from=vaya.txt . vaya
+
+move the Files to next server and then
+
+rsync -zvr oct04/* /var/www/html/

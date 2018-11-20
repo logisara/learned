@@ -1,0 +1,3 @@
+sudo netstat -antup | grep -i 389 --> port check 
+sync; echo 3 > /proc/sys/vm/drop_caches  --> Ram clear
+sudo dscl . append /Groups/_developer GroupMembership developer --> MAC sudo command

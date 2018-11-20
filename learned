@@ -1,0 +1,276 @@
+
+Mongo log rotate:
+vim /etc/logrotate.d/mongod
+
+/var/log/mongodb/*.log {
+daily
+missingok
+rotate 7
+compress
+dateext
+delaycompress
+copytruncate
+notifempty
+}
+
+sudo logrotate -v -f /etc/logrotate.d/mongod
+-----------------------------------------------	-----------------------------------------------------------------------------------------
+To clear cache:
+
+sync; echo 3 > /proc/sys/vm/drop_caches
+----------------------------------------------------------------------------------------------------------------------------------------
+
+pm2 start:
+
+pm2 start mobileapi.js --watch --merge-logs --log-date-format="yyyy-mm-dd hh:mm:ss"top
+----------------------------------------------------------------------------------------------------------------------------------------
+
+nagios installation:
+
+ubuntu:
+
+https://www.howtoforge.com/tutorial/ubuntu-nagios/
+Email setup:
+
+https://www.unixmen.com/send-alerts-nagios-core-using-gmail-yahoo
+
+centos 7:
+
+https://www.tecmint.com/install-nagios-in-linux/
+
+windows:
+
+https://www.tecmint.com/how-to-add-windows-host-to-nagios-monitoring-server/
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+NFS:
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-16-04
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+https://blog.hostonnet.com/install-php-5-6-on-ubuntu-16-04
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+Node configure with https:
+
+npm install -g https
+npm install -g fs
+
+app.js:
+var http = require('https');
+
+
+app.use(i18n,init);
+var certificate = fs.readFileSync('/etc/letsencrypt/live/www.oiedrive.com/cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+var server = http.createServer(  credentials,app );
+
+or
+
+var privateKey  = fs.readFileSync('/etc/pki/tls/private/www.limor.us.key', 'utf8');
+var certificate = fs.readFileSync('/etc/pki/tls/certs/limor_us.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+var server = http.createServer(  credentials,app );
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+zabbix installation steps:
+
+https://www.unixmen.com/how-to-install-zabbix-server-on-centos-7/
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+https://webtatic.com/packages/php70/
+
+----------------------------------------------------------------------------------------------------------------------------------------
+find -type f -mtime +7 -exec rm -rf {} \;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+mysql unwanted index:
+
+https://gist.github.com/benders/114299
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+mysql database count:
+
+select count(*) from information_schema.SCHEMATA where schema_name not in
+('mysql','information_schema');
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+mongo Database count:
+
+db.getMongo().getDBNames().length
+
+---------------------------------------------------------------------------------------------------------------------------------------
+node installation in centos:
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-a-centos-7-server
+
+
+https://stackoverflow.com/questions/11177954/how-do-i-completely-uninstall-node-js-and-reinstall-from-beginning-mac-os-x
+
+uninstall:
+
+rm -rf /root/.nvm
+
+---------------------------------------------------------------------------------------------------------------------------------------
+mongorestore -u mongoadmin --host 34.234.44.19 --port 28018  --authenticationDatabase "admin" -d taxista --collection zones zones.bson 
+
+
+https://stackoverflow.com/questions/28911634/how-to-avoid-transparent-hugepage-defrag-warning-from-mongodb/29181918--->ubuntu-16.04
+https://stackoverflow.com/questions/29644777/how-to-disable-thp-on-centos-7-for-mongodb
+
+echo never > /sys/kernel/mm/transparent_hugepage/enabled;
+echo never > /sys/kernel/mm/transparent_hugepage/defrag;
+
+http://www.whiteboardcoder.com/2017/07/installing-mongodb-on-ubuntu-1604.html
+
+netstat -tn 2>/dev/null | grep :80 | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr | head
+grep "07/Apr/2017:" access_log | cut -d[ -f2 | cut -d] -f1 | awk -F: '{print $2":00"} ' | sort -n | uniq -c
+
+
+--------------------------------------------------------------------------------------------------
+mysql root password change:
+
+https://www.digitalocean.com/community/tutorials/how-to-reset-your-mysql-or-mariadb-root-password
+-------------------------------------------------------------------------------------------------
+
+couchbase-sdk installation setup:
+
+centos7:
+
+wget http://packages.couchbase.com/releases/couchbase-release/couchbase-release-1.0-4-x86_64.rpm
+sudo rpm -iv couchbase-release-1.0-4-x86_64.rpm
+sudo yum install libcouchbase-devel libcouchbase-bin gcc gcc-c++
+
+yum install php-pear
+pecl install couchbase
+
+--------------------------------------------------------------------------------------------------
+
+IPTABLES REDIRECT 80 TO ANYPORT:
+
+sudo iptables -t nat -A OUTPUT -o lo -p tcp --dport 80 -j REDIRECT --to-port 8080
+sudo iptables -t nat -A OUTPUT -o lo -p tcp --dport 443 -j REDIRECT --to-port 8080
+
+
+https://serverfault.com/questions/626521/centos-7-save-iptables-settings
+
+systemctl disable firewalld
+yum install iptables-services
+systemctl enable iptables
+service iptables save
+
+
+-------------------------------------------------------------------------------------------------------------
+Goaccess:
+
+https://idroot.net/linux/install-goaccess-ubuntu-16-04-lts
+-------------------------------------------------------------------------------------------------------------
+
+Own ip blocking to the site:
+
+RewriteCond %{HTTP_HOST} ^35\.169\.205\.56$
+RewriteRule .* - [F]
+
+------------------------------------------------------------------------------------------------------------
+#Disable service at startup 
+
+https://coderwall.com/p/1qptsw/ubuntu-recovery-mode-r-w-file-system
+
+-----------------------------------------------------------------------------------------------------------------
+
+zabbix agent installation:
+
+
+rpm -ivh http://repo.zabbix.com/zabbix/3.0/rhel/7/x86_64/zabbix-release-3.0-1.el7.noarch.rpm
+
+------------------------------------------------------------------------------------------------------------------
+
+mysql version update:5.6 to 5.7
+mv /var/lib/mysql /var/lib/mysql.org
+yum repolist all | grep mysql
+wget http://repo.mysql.com/mysql57-community-release-el7.rpm -P /tmp/
+yum remove mysql-community-release
+rpm -ivh mysql57-community-release-el7.rpm
+yum update mysql
+mv mysql.original mysql
+restart
+
+----------------------------------------------------------------------------------------------------------------------
+https://tecadmin.net/install-nextcloud-on-ubuntu-18-04/
+
+shared server like samba
+
+-----------------------------------------------------------------------------------------------------------------------
+scout-realtime:
+
+https://www.tecmint.com/scout_realtime-monitor-linux-server-and-process-metrics/
+
+-----------------------------------------------------------------------------------------------------------------------
+gitlab installation:
+
+https://www.tecmint.com/install-gitlab-on-ubuntu-debian/
+
+-----------------------------------------------------------------------------------------------------------------------
+Force redirection to https:
+
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} www.zustgo\.com$ [NC]
+RewriteRule ^ https://www.zustgo.com%{REQUEST_URI}  [R=301,L,NE]
+
+----------------------------------------------------------------------------------------------------------------------------
+timedatectl command:
+timedatectl set-timezone Asia/Kolkata
+
+-----------------------------------------------------------------------------------------------------------------------------
+SVN after reboot the server:
+
+cac/etc/init.d/ubersvncontrol stop
+/etc/init.d/svnservercontrol stop
+cd /usr/local/src/ubersvn/bin/
+./svnservercontrol start
+./ubersvncontrol start
+/etc/init.d/ubersvncontrol restart
+
+--------------------------------------------------------------------------------------------------------------------------------
+Apache tuning performance:
+
+https://www.tecmint.com/check-apache-httpd-status-and-uptime-in-linux/
+https://www.tecmint.com/find-top-ip-address-accessing-apache-web-server/
+https://www.tecmint.com/limit-user-file-upload-size-in-apache/
+https://www.tecmint.com/apache-security-tips/
+https://www.tecmint.com/apache-performance-tuning/
+
+--------------------------------------------------------------------------------------------------------------------------------------
+passwordless ssh:
+
+https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/
+
+---------------------------------------------------------------------------------------------------------------------------------------
+List top 10 size folders :
+
+du -hsx * | sort -rh | head -10
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+https://www.thegeekstuff.com/2011/11/vnstat-network-traffic-monitor/
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Image compression in linux:
+c
+jpegoptim --size=500k driver_image/* --dest driver_images/
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+https://www.howtoforge.com/tutorial/how-to-install-mantis-bug-tracker-on-centos-7/
+http://192.168.3.97:2018
+ndot
+ndot
+
+----------------------------------------------------------------------------------------------------------------------
+

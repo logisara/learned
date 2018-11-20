@@ -1,0 +1,31 @@
+ocs inventory
+
+http://192.168.3.35/ocsreports/
+
+gopi
+gopi123
+
+logi
+logi123
+
+DB name:OCS web
+
+client installation setup:
+
+http://www.techthings.org/steps-to-install-ocsinventory-agent-on-linux-and-windows-system/
+
+server installation setup:
+
+http://ask.ocsinventory-ng.org/4554/tutorial-ocs-on-ubuntu-16-04
+
+mod_perl check & mv conf-availabel/.conf to sites-available
+
+a2enmod perl
+
+apt-get -y install libapache2-mod-perl2
+
+http://ask.ocsinventory-ng.org/8583/tutorial-ocs-2-4-on-ubuntu-16-04
+
+
+
+
